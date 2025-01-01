@@ -27,32 +27,45 @@ def get_answer():
 
 def count_ip(entry_log):
     ip_list = []
-    with open(entry_log, 'r', encoding='utf-8') as data:
-        for line in data:
-            match = re.match(pattern, line)
-            if match:
-                ip_list.append(match.groupdict()['ip'])
-        ip_counter = Counter(ip_list)
-        return ip_counter.most_common()
+    try:
+        with open(entry_log, 'r', encoding='utf-8') as data:
+            for line in data:
+                match = re.match(pattern, line)
+                if match:
+                    ip_list.append(match.groupdict()['ip'])
+            ip_counter = Counter(ip_list)
+            return ip_counter.most_common()
+    except FileNotFoundError:
+        print(f"Файл {entry_log} не найден")
+        return []
 
 def count_method(entry_log):
     method_list = []
-    with open(entry_log, 'r', encoding='utf-8') as data:
-        for line in data:
-            match = re.match(pattern, line)
-            if match:
-                method_list.append(match.groupdict()['method'])
-        method_counter = Counter(method_list)
-        return method_counter
+    try:
+        with open(entry_log, 'r', encoding='utf-8') as data:
+            for line in data:
+                match = re.match(pattern, line)
+                if match:
+                    method_list.append(match.groupdict()['method'])
+            method_counter = Counter(method_list)
+            return method_counter
+    except FileNotFoundError:
+        print(f"Файл {entry_log} не найден")
+        return Counter()
+
 def count_datetime(entry_log):
     datetime_list = []
-    with open(entry_log, 'r', encoding='utf-8') as data:
-        for line in data:
-            match = re.match(pattern, line)
-            if match:
-                datetime_list.append(match.groupdict()['datetime'])
-        datetime_counter = Counter(datetime_list)
-        return datetime_counter
+    try:
+        with open(entry_log, 'r', encoding='utf-8') as data:
+            for line in data:
+                match = re.match(pattern, line)
+                if match:
+                    datetime_list.append(match.groupdict()['datetime'])
+            datetime_counter = Counter(datetime_list)
+            return datetime_counter
+    except FileNotFoundError:
+        print(f"Файл {entry_log} не найден")
+        return Counter()
     
 def statistic():
     display_menu()
