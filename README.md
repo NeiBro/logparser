@@ -37,7 +37,7 @@ No external libraries are required as the script uses built-in Python modules su
    ```
 2. Navigate to the project directory:
    ```bash
-   cd log-analyzer
+   cd logparser
    ```
 
 ---
