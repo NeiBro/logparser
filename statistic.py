@@ -37,7 +37,7 @@ def count_ip(entry_log):
             return ip_counter.most_common()
     except FileNotFoundError:
         print(f"Файл {entry_log} не найден")
-        return []
+        return
 
 def count_method(entry_log):
     method_list = []
@@ -51,7 +51,7 @@ def count_method(entry_log):
             return method_counter
     except FileNotFoundError:
         print(f"Файл {entry_log} не найден")
-        return Counter()
+        return
 
 def count_datetime(entry_log):
     datetime_list = []
@@ -65,7 +65,7 @@ def count_datetime(entry_log):
             return datetime_counter
     except FileNotFoundError:
         print(f"Файл {entry_log} не найден")
-        return Counter()
+        return
     
 def statistic():
     display_menu()
